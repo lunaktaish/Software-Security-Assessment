@@ -1,0 +1,124 @@
+{
+  "user_db1": {
+    "username": "user1",
+    "password": "1234"
+  },
+  "user_db2": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "user_db3": {
+    "username": "guest",
+    "password": "guest"
+  },
+  "user_db4": {
+    "username": "test",
+    "password": "test123"
+  },
+  "user_db5": {
+    "username": "hello",
+    "password": "hello"
+  },
+  "user_db6": {
+    "username": "name",
+    "password": "1111"
+  },
+  "user_db7": {
+    "username": "login",
+    "password": "login"
+  },
+  "user_db8": {
+    "username": "abc",
+    "password": "abc123"
+  },
+  "user_db9": {
+    "username": "demo",
+    "password": "demo"
+  },
+  "user_db10": {
+    "username": "student",
+    "password": "student"
+  },
+
+  "user_db11": {
+    "username": "Student_user",
+    "password": "Student123"
+  },
+  "user_db12": {
+    "username": "user_test",
+    "password": "Test2024"
+  },
+  "user_db13": {
+    "username": "bluecat",
+    "password": "BlueCat12"
+  },
+  "user_db14": {
+    "username": "student1",
+    "password": "Student99"
+  },
+  "user_db15": {
+    "username": "login_user",
+    "password": "Login456"
+  },
+  "user_db16": {
+    "username": "pythonfan",
+    "password": "Python101"
+  },
+  "user_db17": {
+    "username": "techgirl",
+    "password": "TechGirl7"
+  },
+  "user_db18": {
+    "username": "cloud_user",
+    "password": "Cloud123"
+  },
+  "user_db19": {
+    "username": "gamer22",
+    "password": "GameOn22"
+  },
+  "user_db20": {
+    "username": "webdev",
+    "password": "WebDev88"
+  },
+
+  "user_db21": {
+    "username": "sha.sec",
+    "password": "S!h4r0n#92"
+  },
+  "user_db22": {
+    "username": "secure_user",
+    "password": "9K@pZ!4xQ"
+  },
+  "user_db23": {
+    "username": "cyber.auth",
+    "password": "M8$Lq@2R!"
+  },
+  "user_db24": {
+    "username": "dev.access",
+    "password": "X#4pW9!eT"
+  },
+  "user_db25": {
+    "username": "root.guard",
+    "password": "R00t!Safe@77"
+  },
+  "user_db26": {
+    "username": "net.lock",
+    "password": "L0ck&Key!5"
+  },
+  "user_db27": {
+    "username": "auth.master",
+    "password": "A^9mZ!Q2e"
+  },
+  "user_db28": {
+    "username": "vault_user",
+    "password": "V@u1t#P!88"
+  },
+  "user_db29": {
+    "username": "system.sec",
+    "password": "Sy$T3m!42"
+  },
+  "user_db30": {
+    "username": "secure.login",
+    "password": "S3curE!@91"
+  }
+}
