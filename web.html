@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Security Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1f1035 100%);
+            overflow: hidden;
+        }
+
+        /* Animated background grid */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 105, 180, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 105, 180, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 105, 180, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        .particle:nth-child(odd) {
+            background: rgba(200, 150, 255, 0.6);
+            box-shadow: 0 0 10px rgba(200, 150, 255, 0.5);
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 14s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 11s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 16s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 13s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 15s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1s; animation-duration: 11s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* Login container */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 420px;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            border-radius: 12px;
+            box-shadow: 
+                0 0 60px rgba(255, 105, 180, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(200, 150, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff69b4, #c896ff, #ff69b4, #c896ff);
+            background-size: 400% 400%;
+            border-radius: 14px;
+            z-index: -1;
+            animation: gradientBorder 4s ease infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #9b4dca, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 0.85rem;
+            color: rgba(155, 77, 202, 0.6);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Form styles */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: #9b4dca;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(245, 240, 250, 0.8);
+            border: 2px solid rgba(200, 150, 255, 0.3);
+            border-radius: 8px;
+            color: #2d1b4e;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+            background: #fff;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(155, 77, 202, 0.4);
+        }
+
+        /* Submit button */
+        .submit-btn {
+            margin-top: 15px;
+            padding: 16px 30px;
+            background: linear-gradient(135deg, #9b4dca 0%, #ff69b4 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 105, 180, 0.5);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Result pages */
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+
+        .result-container.active {
+            display: block;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .result-message {
+            font-size: 1rem;
+            color: rgba(45, 27, 78, 0.7);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .success .result-icon { 
+            color: #9b4dca; 
+        }
+        .success .result-title { 
+            background: linear-gradient(135deg, #9b4dca, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error .result-icon { 
+            color: #ff69b4; 
+        }
+        .error .result-title { 
+            color: #ff69b4;
+        }
+
+        .back-btn {
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid rgba(155, 77, 202, 0.4);
+            border-radius: 8px;
+            color: #9b4dca;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            border-color: #ff69b4;
+            color: #ff69b4;
+            background: rgba(255, 105, 180, 0.1);
+        }
+
+        /* Decorative corners */
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 105, 180, 0.4);
+        }
+
+        .corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; border-radius: 4px 0 0 0; }
+        .corner-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; border-radius: 0 4px 0 0; }
+        .corner-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; border-radius: 0 0 0 4px; }
+        .corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; border-radius: 0 0 4px 0; }
+
+        /* Decorative circles */
+        .deco-circle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .deco-circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ff69b4 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .deco-circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #c896ff 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <!-- Login Form -->
+        <div id="loginPage">
+            <div class="header">
+                <h1>Software Security Assessment</h1>
+                <div class="subtitle">Authorized Access Only</div>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Authenticate</button>
+            </form>
+        </div>
+
+        <!-- Success Page -->
+        <div id="successPage" class="result-container success">
+            <div class="result-icon">✓</div>
+            <div class="result-title">Success!</div>
+            <div class="result-message">Authentication successful.<br>Welcome to the system.</div>
+            <button class="back-btn" onclick="showLogin()">Logout</button>
+        </div>
+
+        <!-- Error Page -->
+        <div id="errorPage" class="result-container error">
+            <div class="result-icon">✗</div>
+            <div class="result-title">Oops, try again</div>
+            <div class="result-message">The password/username you entered are incorrect.</div>
+            <button class="back-btn" onclick="showLogin()">Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginPage = document.getElementById('loginPage');
+        const successPage = document.getElementById('successPage');
+        const errorPage = document.getElementById('errorPage');
+
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Send credentials to server API
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSuccess();
+                } else {
+                    showError();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // If server is not available, show error
+                alert('Could not connect to server. Make sure server.py is running!');
+            }
+        });
+
+        function showLogin() {
+            loginPage.style.display = 'block';
+            successPage.classList.remove('active');
+            errorPage.classList.remove('active');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function showSuccess() {
+            loginPage.style.display = 'none';
+            errorPage.classList.remove('active');
+            successPage.classList.add('active');
+        }
+
+        function showError() {
+            loginPage.style.display = 'none';
+            successPage.classList.remove('active');
+            errorPage.classList.add('active');
+        }
+    </script>
+</body>
+</html>
