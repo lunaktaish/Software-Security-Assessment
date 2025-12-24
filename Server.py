@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from datetime import datetime
 
@@ -7,7 +8,7 @@ USER_DB_FILE = "user_db.json"
 LOGGING_FILE = "logging.json"
 WEB_HTML_FILE = "web.html"
 
-GROUP_SEED = 25493314 #Group Seed number: 323047696 XOR 314945106
+GROUP_SEED = 25493314  # Group Seed number: 323047696 XOR 314945106
 
 def load_user_db():
     # Load user database (user_db.json) and convert to username password format
@@ -36,30 +37,32 @@ def load_logs():
                     return data["attempts"]
     return []
 
-def save_log(username, password, success):
+def save_log(username, password, success, latency_ms):
     # defines a function that records one login attempt.
-    logs = load_logs() # loads all previous login attempts.
+    logs = load_logs()  # loads all previous login attempts.
     
     # Count attempts for this username
     attempt_count = sum(1 for a in logs if a["username"] == username) + 1
     
     log_entry = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "group_seed": GROUP_SEED,
         "username": username,
         "password": password,
-        "attempt_number": attempt_count,
-        "success": success
+        "result": success,
+        "latency_ms": latency_ms,
+        "attempt_number": attempt_count
     }
     
-    logs.append(log_entry) # appends the new entry 
+    logs.append(log_entry)  # appends the new entry 
     
-    with open(LOGGING_FILE, 'w') as f:# write all logs back to the file.
+    with open(LOGGING_FILE, 'w') as f:  # write all logs back to the file.
         json.dump(logs, f, indent=2)
     
     return log_entry
 
 class LoginHandler(BaseHTTPRequestHandler):
-   #defines the HTTP request handler
+    # defines the HTTP request handler
  
     def send_cors_headers(self):
         # allows browsers to send requests from different origins
@@ -104,6 +107,8 @@ class LoginHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         # Handle login API requests
         if self.path == "/api/login":
+            start_time = time.time()  # Start measuring latency
+            
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length).decode('utf-8')
             
@@ -128,17 +133,14 @@ class LoginHandler(BaseHTTPRequestHandler):
             if username in user_db and user_db[username] == password:
                 success = True
             
-            # Log the attempt to logging.json
-            log_entry = save_log(username, password, success)
+            # Calculate latency
+            latency_ms = round((time.time() - start_time) * 1000, 2)
             
-            print(f"\n{'='*50}")
-            print(f"Login Attempt:")
-            print(f"  Timestamp: {log_entry['timestamp']}")
-            print(f"  Username: {log_entry['username']}")
-            print(f"  Password: {log_entry['password']}")
-            print(f"  Attempt #: {log_entry['attempt_number']}")
-            print(f"  Success: {log_entry['success']}")
-            print(f"{'='*50}\n")
+            # Determine result
+            #result = "success" if success else "failure"
+            
+            # Log the attempt to logging.json
+            log_entry = save_log(username, password, success , latency_ms)
 
             self.send_response(200)
             self.send_header("Content-type", "application/json")
