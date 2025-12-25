@@ -21,9 +21,6 @@ WEB_HTML_FILE = "web.html"
 
 GROUP_SEED = 25493314  # Group Seed number: 323047696 XOR 314945106
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
 HASH_MODE = "none"  # Options: "none", "sha256_salt", "bcrypt", "argon2id"
 
 # Track users who passed password verification but need TOTP
@@ -472,3 +469,4 @@ if __name__ == "__main__":
         load_and_hash_passwords(HASH_MODE)
     
     run_server()
+
