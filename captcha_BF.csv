@@ -1,0 +1,239 @@
+timestamp,group_seed,username,password,hash_mode,protection_flags,result,latency_ms,attempt_number
+2025-12-30 09:36:09,25493314,user1,123456,none,captcha,False,0.05,1
+2025-12-30 09:36:09,25493314,user1,password,none,captcha,False,0.01,2
+2025-12-30 09:36:09,25493314,user1,12345678,none,captcha,False,0.01,3
+2025-12-30 09:36:09,25493314,user1,qwerty,none,captcha,False,0.01,4
+2025-12-30 09:36:09,25493314,user1,123456789,none,captcha,False,0.01,5
+2025-12-30 09:36:09,25493314,user1,12345,none,captcha,False,0.01,6
+2025-12-30 09:36:09,25493314,user1,1234,none,captcha,False,0.01,7
+2025-12-30 09:36:09,25493314,user1,111111,none,captcha,False,0.01,8
+2025-12-30 09:36:09,25493314,user1,1234567,none,captcha,False,0.01,9
+2025-12-30 09:36:09,25493314,user1,dragon,none,captcha,False,0.01,10
+2025-12-30 09:36:09,25493314,user1,123123,none,captcha,False,0.01,11
+2025-12-30 09:36:09,25493314,user1,baseball,none,captcha,False,0.01,12
+2025-12-30 09:36:09,25493314,user1,abc123,none,captcha,False,0.01,13
+2025-12-30 09:36:10,25493314,user1,football,none,captcha,False,0.01,14
+2025-12-30 09:36:10,25493314,user1,monkey,none,captcha,False,0.01,15
+2025-12-30 09:36:10,25493314,user1,letmein,none,captcha,False,0.01,16
+2025-12-30 09:36:10,25493314,user1,shadow,none,captcha,False,0.01,17
+2025-12-30 09:36:10,25493314,user1,master,none,captcha,False,0.01,18
+2025-12-30 09:36:10,25493314,user1,666666,none,captcha,False,0.01,19
+2025-12-30 09:36:10,25493314,user1,qwertyuiop,none,captcha,False,0.01,20
+2025-12-30 09:36:10,25493314,user1,123321,none,captcha,False,0.01,21
+2025-12-30 09:36:10,25493314,user1,mustang,none,captcha,False,0.01,22
+2025-12-30 09:36:10,25493314,user1,121212,none,captcha,False,0.01,23
+2025-12-30 09:36:10,25493314,user1,000000,none,captcha,False,0.01,24
+2025-12-30 09:36:10,25493314,user1,password1,none,captcha,False,0.01,25
+2025-12-30 09:36:10,25493314,user1,admin,none,captcha,False,0.01,26
+2025-12-30 09:36:10,25493314,user1,admin123,none,captcha,False,0.01,27
+2025-12-30 09:36:10,25493314,user1,root,none,captcha,False,0.01,28
+2025-12-30 09:36:10,25493314,user1,toor,none,captcha,False,0.01,29
+2025-12-30 09:36:10,25493314,user1,pass,none,captcha,False,0.01,30
+2025-12-30 09:36:10,25493314,user1,test,none,captcha,False,0.01,31
+2025-12-30 09:36:10,25493314,user1,test123,none,captcha,False,0.01,32
+2025-12-30 09:36:10,25493314,user1,guest,none,captcha,False,0.01,33
+2025-12-30 09:36:10,25493314,user1,guest123,none,captcha,False,0.01,34
+2025-12-30 09:36:10,25493314,user1,user,none,captcha,False,0.01,35
+2025-12-30 09:36:10,25493314,user1,user123,none,captcha,False,0.01,36
+2025-12-30 09:36:10,25493314,user1,login,none,captcha,False,0.01,37
+2025-12-30 09:36:10,25493314,user1,login123,none,captcha,False,0.01,38
+2025-12-30 09:36:10,25493314,user1,welcome,none,captcha,False,0.01,39
+2025-12-30 09:36:10,25493314,user1,welcome1,none,captcha,False,0.01,40
+2025-12-30 09:36:10,25493314,user1,password123,none,captcha,False,0.01,41
+2025-12-30 09:36:10,25493314,user1,admin1,none,captcha,False,0.01,42
+2025-12-30 09:36:10,25493314,user1,root123,none,captcha,False,0.01,43
+2025-12-30 09:36:10,25493314,user1,pass123,none,captcha,False,0.01,44
+2025-12-30 09:36:10,25493314,user1,1q2w3e4r,none,captcha,False,0.01,45
+2025-12-30 09:36:10,25493314,user1,qwerty123,none,captcha,False,0.01,46
+2025-12-30 09:36:10,25493314,user1,1234567890,none,captcha,False,0.01,47
+2025-12-30 09:36:10,25493314,user1,987654321,none,captcha,False,0.01,48
+2025-12-30 09:36:10,25493314,user1,hello,none,captcha,False,0.01,49
+2025-12-30 09:36:10,25493314,user1,hello123,none,captcha,False,0.01,50
+2025-12-30 09:36:10,25493314,user1,iloveyou,none,captcha,False,0.01,51
+2025-12-30 09:36:10,25493314,user1,sunshine,none,captcha,False,0.01,52
+2025-12-30 09:36:10,25493314,user1,princess,none,captcha,False,0.01,53
+2025-12-30 09:36:10,25493314,user1,Password1,none,captcha,False,0.01,54
+2025-12-30 09:36:10,25493314,user1,Password123,none,captcha,False,0.01,55
+2025-12-30 09:36:10,25493314,user1,Admin123,none,captcha,False,0.01,56
+2025-12-30 09:36:10,25493314,user1,Welcome1,none,captcha,False,0.01,57
+2025-12-30 09:36:10,25493314,user1,Student123,none,captcha,False,0.01,58
+2025-12-30 09:36:10,25493314,user1,Student99,none,captcha,False,0.01,59
+2025-12-30 09:36:10,25493314,user1,Test2024,none,captcha,False,0.01,60
+2025-12-30 09:36:10,25493314,user1,Login456,none,captcha,False,0.01,61
+2025-12-30 09:36:10,25493314,user1,Python101,none,captcha,False,0.01,62
+2025-12-30 09:36:10,25493314,user1,demo,none,captcha,False,0.01,63
+2025-12-30 09:36:10,25493314,user1,student,none,captcha,False,0.01,64
+2025-12-30 09:36:10,25493314,user1,name,none,captcha,False,0.01,65
+2025-12-30 09:36:10,25493314,user1,1111,none,captcha,False,0.01,66
+2025-12-30 09:36:10,25493314,user1,BlueCat12,none,captcha,False,0.01,67
+2025-12-30 09:36:10,25493314,user1,TechGirl7,none,captcha,False,0.01,68
+2025-12-30 09:36:10,25493314,user1,Cloud123,none,captcha,False,0.01,69
+2025-12-30 09:36:10,25493314,user1,GameOn22,none,captcha,False,0.01,70
+2025-12-30 09:36:10,25493314,user1,WebDev88,none,captcha,False,0.01,71
+2025-12-30 09:38:16,25493314,user15,123456,none,captcha,False,0.05,1
+2025-12-30 09:38:16,25493314,user15,password,none,captcha,False,0.01,2
+2025-12-30 09:38:16,25493314,user15,12345678,none,captcha,False,0.01,3
+2025-12-30 09:38:16,25493314,user15,qwerty,none,captcha,False,0.01,4
+2025-12-30 09:38:16,25493314,user15,123456789,none,captcha,False,0.01,5
+2025-12-30 09:38:16,25493314,user15,12345,none,captcha,False,0.01,6
+2025-12-30 09:38:16,25493314,user15,1234,none,captcha,False,0.01,7
+2025-12-30 09:38:16,25493314,user15,111111,none,captcha,False,0.01,8
+2025-12-30 09:38:16,25493314,user15,1234567,none,captcha,False,0.01,9
+2025-12-30 09:38:16,25493314,user15,dragon,none,captcha,False,0.01,10
+2025-12-30 09:38:16,25493314,user15,123123,none,captcha,False,0.01,11
+2025-12-30 09:38:16,25493314,user15,abc123,none,captcha,False,0.01,12
+2025-12-30 09:38:16,25493314,user15,football,none,captcha,False,0.01,13
+2025-12-30 09:38:16,25493314,user15,monkey,none,captcha,False,0.01,14
+2025-12-30 09:38:16,25493314,user15,letmein,none,captcha,False,0.01,15
+2025-12-30 09:38:16,25493314,user15,shadow,none,captcha,False,0.01,16
+2025-12-30 09:38:16,25493314,user15,master,none,captcha,False,0.01,17
+2025-12-30 09:38:16,25493314,user15,666666,none,captcha,False,0.01,18
+2025-12-30 09:38:16,25493314,user15,qwertyuiop,none,captcha,False,0.01,19
+2025-12-30 09:38:16,25493314,user15,123321,none,captcha,False,0.01,20
+2025-12-30 09:38:16,25493314,user15,121212,none,captcha,False,0.01,21
+2025-12-30 09:38:16,25493314,user15,000000,none,captcha,False,0.01,22
+2025-12-30 09:38:16,25493314,user15,password1,none,captcha,False,0.01,23
+2025-12-30 09:38:16,25493314,user15,admin,none,captcha,False,0.01,24
+2025-12-30 09:38:16,25493314,user15,admin123,none,captcha,False,0.01,25
+2025-12-30 09:38:16,25493314,user15,root,none,captcha,False,0.01,26
+2025-12-30 09:38:16,25493314,user15,toor,none,captcha,False,0.01,27
+2025-12-30 09:38:16,25493314,user15,pass,none,captcha,False,0.01,28
+2025-12-30 09:38:16,25493314,user15,test,none,captcha,False,0.01,29
+2025-12-30 09:38:16,25493314,user15,test123,none,captcha,False,0.01,30
+2025-12-30 09:38:16,25493314,user15,guest,none,captcha,False,0.01,31
+2025-12-30 09:38:16,25493314,user15,guest123,none,captcha,False,0.01,32
+2025-12-30 09:38:16,25493314,user15,user,none,captcha,False,0.01,33
+2025-12-30 09:38:16,25493314,user15,user123,none,captcha,False,0.01,34
+2025-12-30 09:38:16,25493314,user15,login,none,captcha,False,0.01,35
+2025-12-30 09:38:16,25493314,user15,login123,none,captcha,False,0.01,36
+2025-12-30 09:38:16,25493314,user15,welcome,none,captcha,False,0.01,37
+2025-12-30 09:38:16,25493314,user15,welcome1,none,captcha,False,0.01,38
+2025-12-30 09:38:16,25493314,user15,password123,none,captcha,False,0.01,39
+2025-12-30 09:38:16,25493314,user15,admin1,none,captcha,False,0.01,40
+2025-12-30 09:38:16,25493314,user15,root123,none,captcha,False,0.01,41
+2025-12-30 09:38:16,25493314,user15,pass123,none,captcha,False,0.02,42
+2025-12-30 09:38:16,25493314,user15,1q2w3e4r,none,captcha,False,0.04,43
+2025-12-30 09:38:16,25493314,user15,qwerty123,none,captcha,False,0.01,44
+2025-12-30 09:38:16,25493314,user15,1234567890,none,captcha,False,0.01,45
+2025-12-30 09:38:16,25493314,user15,987654321,none,captcha,False,0.01,46
+2025-12-30 09:38:16,25493314,user15,hello,none,captcha,False,0.01,47
+2025-12-30 09:38:16,25493314,user15,hello123,none,captcha,False,0.01,48
+2025-12-30 09:38:16,25493314,user15,iloveyou,none,captcha,False,0.01,49
+2025-12-30 09:38:16,25493314,user15,princess,none,captcha,False,0.01,50
+2025-12-30 09:38:16,25493314,user15,Password1,none,captcha,False,0.01,51
+2025-12-30 09:38:16,25493314,user15,Password123,none,captcha,False,0.01,52
+2025-12-30 09:38:16,25493314,user15,Admin123,none,captcha,False,0.01,53
+2025-12-30 09:38:17,25493314,user15,Welcome1,none,captcha,False,0.01,54
+2025-12-30 09:38:17,25493314,user15,Student123,none,captcha,False,0.01,55
+2025-12-30 09:38:17,25493314,user15,Student99,none,captcha,False,0.01,56
+2025-12-30 09:38:17,25493314,user15,Test2024,none,captcha,False,0.01,57
+2025-12-30 09:38:17,25493314,user15,Login456,none,captcha,False,0.01,58
+2025-12-30 09:38:17,25493314,user15,Python101,none,captcha,False,0.01,59
+2025-12-30 09:38:17,25493314,user15,demo,none,captcha,False,0.01,60
+2025-12-30 09:38:17,25493314,user15,student,none,captcha,False,0.01,61
+2025-12-30 09:38:17,25493314,user15,name,none,captcha,False,0.01,62
+2025-12-30 09:38:17,25493314,user15,1111,none,captcha,False,0.01,63
+2025-12-30 09:38:17,25493314,user15,BlueCat12,none,captcha,False,0.01,64
+2025-12-30 09:38:17,25493314,user15,TechGirl7,none,captcha,False,0.01,65
+2025-12-30 09:38:17,25493314,user15,Cloud123,none,captcha,False,0.01,66
+2025-12-30 09:38:17,25493314,user15,GameOn22,none,captcha,False,0.01,67
+2025-12-30 09:38:17,25493314,user15,WebDev88,none,captcha,False,0.01,68
+2025-12-30 09:38:31,25493314,user25,123456,none,captcha,False,0.01,1
+2025-12-30 09:38:31,25493314,user25,password,none,captcha,False,0.01,2
+2025-12-30 09:38:31,25493314,user25,12345678,none,captcha,False,0.01,3
+2025-12-30 09:38:31,25493314,user25,qwerty,none,captcha,False,0.01,4
+2025-12-30 09:38:31,25493314,user25,12345,none,captcha,False,0.01,5
+2025-12-30 09:38:31,25493314,user25,1234,none,captcha,False,0.01,6
+2025-12-30 09:38:31,25493314,user25,111111,none,captcha,False,0.01,7
+2025-12-30 09:38:31,25493314,user25,1234567,none,captcha,False,0.01,8
+2025-12-30 09:38:31,25493314,user25,dragon,none,captcha,False,0.01,9
+2025-12-30 09:38:31,25493314,user25,123123,none,captcha,False,0.01,10
+2025-12-30 09:38:31,25493314,user25,baseball,none,captcha,False,0.01,11
+2025-12-30 09:38:31,25493314,user25,abc123,none,captcha,False,0.01,12
+2025-12-30 09:38:31,25493314,user25,football,none,captcha,False,0.01,13
+2025-12-30 09:38:31,25493314,user25,monkey,none,captcha,False,0.02,14
+2025-12-30 09:38:31,25493314,user25,letmein,none,captcha,False,0.01,15
+2025-12-30 09:38:31,25493314,user25,shadow,none,captcha,False,0.01,16
+2025-12-30 09:38:31,25493314,user25,master,none,captcha,False,0.01,17
+2025-12-30 09:38:31,25493314,user25,666666,none,captcha,False,0.01,18
+2025-12-30 09:38:31,25493314,user25,qwertyuiop,none,captcha,False,0.01,19
+2025-12-30 09:38:31,25493314,user25,123321,none,captcha,False,0.01,20
+2025-12-30 09:38:31,25493314,user25,mustang,none,captcha,False,0.01,21
+2025-12-30 09:38:31,25493314,user25,121212,none,captcha,False,0.01,22
+2025-12-30 09:38:31,25493314,user25,000000,none,captcha,False,0.01,23
+2025-12-30 09:38:31,25493314,user25,password1,none,captcha,False,0.01,24
+2025-12-30 09:38:31,25493314,user25,admin,none,captcha,False,0.01,25
+2025-12-30 09:38:31,25493314,user25,admin123,none,captcha,False,0.01,26
+2025-12-30 09:38:31,25493314,user25,root,none,captcha,False,0.01,27
+2025-12-30 09:38:31,25493314,user25,pass,none,captcha,False,0.01,28
+2025-12-30 09:38:31,25493314,user25,test,none,captcha,False,0.01,29
+2025-12-30 09:38:31,25493314,user25,test123,none,captcha,False,0.01,30
+2025-12-30 09:38:31,25493314,user25,guest,none,captcha,False,0.01,31
+2025-12-30 09:38:31,25493314,user25,user,none,captcha,False,0.01,32
+2025-12-30 09:38:31,25493314,user25,user123,none,captcha,False,0.01,33
+2025-12-30 09:38:31,25493314,user25,login,none,captcha,False,0.01,34
+2025-12-30 09:38:31,25493314,user25,login123,none,captcha,False,0.01,35
+2025-12-30 09:38:31,25493314,user25,welcome,none,captcha,False,0.01,36
+2025-12-30 09:38:31,25493314,user25,welcome1,none,captcha,False,0.01,37
+2025-12-30 09:38:31,25493314,user25,password123,none,captcha,False,0.01,38
+2025-12-30 09:38:31,25493314,user25,admin1,none,captcha,False,0.01,39
+2025-12-30 09:38:31,25493314,user25,root123,none,captcha,False,0.01,40
+2025-12-30 09:38:31,25493314,user25,pass123,none,captcha,False,0.01,41
+2025-12-30 09:38:31,25493314,user25,1q2w3e4r,none,captcha,False,0.01,42
+2025-12-30 09:38:31,25493314,user25,1234567890,none,captcha,False,0.01,43
+2025-12-30 09:38:31,25493314,user25,987654321,none,captcha,False,0.01,44
+2025-12-30 09:38:31,25493314,user25,hello,none,captcha,False,0.01,45
+2025-12-30 09:38:31,25493314,user25,hello123,none,captcha,False,0.01,46
+2025-12-30 09:38:31,25493314,user25,iloveyou,none,captcha,False,0.01,47
+2025-12-30 09:38:31,25493314,user25,sunshine,none,captcha,False,0.01,48
+2025-12-30 09:38:31,25493314,user25,princess,none,captcha,False,0.01,49
+2025-12-30 09:38:31,25493314,user25,Password1,none,captcha,False,0.01,50
+2025-12-30 09:38:31,25493314,user25,Password123,none,captcha,False,0.01,51
+2025-12-30 09:38:31,25493314,user25,Admin123,none,captcha,False,0.01,52
+2025-12-30 09:38:31,25493314,user25,Welcome1,none,captcha,False,0.01,53
+2025-12-30 09:38:31,25493314,user25,Student123,none,captcha,False,0.01,54
+2025-12-30 09:38:31,25493314,user25,Student99,none,captcha,False,0.01,55
+2025-12-30 09:38:31,25493314,user25,Test2024,none,captcha,False,0.01,56
+2025-12-30 09:38:31,25493314,user25,Login456,none,captcha,False,0.01,57
+2025-12-30 09:38:31,25493314,user25,Python101,none,captcha,False,0.01,58
+2025-12-30 09:38:31,25493314,user25,demo,none,captcha,False,0.01,59
+2025-12-30 09:38:31,25493314,user25,student,none,captcha,False,0.01,60
+2025-12-30 09:38:31,25493314,user25,name,none,captcha,False,0.01,61
+2025-12-30 09:38:31,25493314,user25,1111,none,captcha,False,0.01,62
+2025-12-30 09:38:31,25493314,user25,BlueCat12,none,captcha,False,0.01,63
+2025-12-30 09:38:31,25493314,user25,TechGirl7,none,captcha,False,0.01,64
+2025-12-30 09:38:31,25493314,user25,Cloud123,none,captcha,False,0.01,65
+2025-12-30 09:38:31,25493314,user25,GameOn22,none,captcha,False,0.01,66
+2025-12-30 09:38:31,25493314,user25,WebDev88,none,captcha,False,0.01,67
+
+====================,SUMMARY STATISTICS,====================
+
+Metric,Value
+Total Attempts,206
+Successful Attempts,0
+Failed Attempts,206
+Success Rate (%),0.00
+
+Unique Usernames Tested,3
+Unique Passwords Tested,71
+
+Latency Statistics (ms)
+Sum (Total Latency),2.19
+Average Latency,0.01
+Median Latency (P50),0.01
+Min Latency,0.01
+Max Latency,0.05
+
+Percentiles (ms)
+10th Percentile (P10),0.01
+25th Percentile (P25),0.01
+75th Percentile (P75),0.01
+90th Percentile (P90),0.01
+95th Percentile (P95),0.01
+99th Percentile (P99),0.04
+
+Time Range
+First Attempt,2025-12-30 09:36:09
+Last Attempt,2025-12-30 09:38:31
+
+Report Generated,2025-12-30 20:59:54
