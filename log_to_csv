@@ -1,0 +1,165 @@
+"""Log to CSV Converter"""
+import json
+import csv
+import os
+from datetime import datetime
+
+def load_logging_data(log_file="logging.json"):
+    """Load data from logging.json file."""
+    if not os.path.exists(log_file):
+        print(f"Error: {log_file} not found!")
+        return []
+    
+    with open(log_file, 'r') as f:
+        data = json.load(f)
+    return data
+
+def create_csv_report(data, output_dir="."):
+    """Create CSV file with all log entries and summary statistics."""
+    if not data:
+        print("No data to process!")
+        return None
+    
+    # Generate timestamped filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = os.path.join(output_dir, f"attack_log_{timestamp}.csv")
+    
+    # Define CSV columns based on logging fields
+    fieldnames = [
+        'timestamp', 'group_seed', 'username', 'password', 
+        'hash_mode', 'protection_flags', 'result', 'latency_ms', 'attempt_number'
+    ]
+    
+    with open(output_file, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        
+        # Write header
+        writer.writerow(fieldnames)
+        
+        # Write data rows
+        for entry in data:
+            row = [entry.get(field, '') for field in fieldnames]
+            writer.writerow(row)
+        
+        # Calculate statistics
+        total_attempts = len(data)
+        successful_attempts = sum(1 for entry in data if entry.get('result') == True)
+        failed_attempts = total_attempts - successful_attempts
+        
+        latencies = [entry.get('latency_ms', 0) for entry in data if entry.get('latency_ms') is not None]
+        avg_latency = sum(latencies) / len(latencies) if latencies else 0
+        min_latency = min(latencies) if latencies else 0
+        max_latency = max(latencies) if latencies else 0
+        total_latency = sum(latencies)
+        
+        # Calculate median and percentiles
+        if latencies:
+            sorted_latencies = sorted(latencies)
+            n = len(sorted_latencies)
+            
+            # Median (50th percentile)
+            if n % 2 == 0:
+                median_latency = (sorted_latencies[n//2 - 1] + sorted_latencies[n//2]) / 2
+            else:
+                median_latency = sorted_latencies[n//2]
+            
+            # Percentile function
+            def percentile(data, p):
+                k = (len(data) - 1) * (p / 100)
+                f = int(k)
+                c = f + 1 if f + 1 < len(data) else f
+                return data[f] + (k - f) * (data[c] - data[f])
+            
+            # Calculate percentiles
+            p10 = percentile(sorted_latencies, 10)
+            p25 = percentile(sorted_latencies, 25)
+            p75 = percentile(sorted_latencies, 75)
+            p90 = percentile(sorted_latencies, 90)
+            p95 = percentile(sorted_latencies, 95)
+            p99 = percentile(sorted_latencies, 99)
+        else:
+            median_latency = 0
+            p10 = p25 = p75 = p90 = p95 = p99 = 0
+        
+        # Get unique values
+        unique_usernames = len(set(entry.get('username', '') for entry in data))
+        unique_passwords = len(set(entry.get('password', '') for entry in data))
+        
+        # Write empty row separator
+        writer.writerow([])
+        writer.writerow(['=' * 20, 'SUMMARY STATISTICS', '=' * 20])
+        writer.writerow([])
+        
+        # Write summary statistics
+        writer.writerow(['Metric', 'Value'])
+        writer.writerow(['Total Attempts', total_attempts])
+        writer.writerow(['Successful Attempts', successful_attempts])
+        writer.writerow(['Failed Attempts', failed_attempts])
+        writer.writerow(['Success Rate (%)', f"{(successful_attempts/total_attempts*100):.2f}" if total_attempts > 0 else "0.00"])
+        writer.writerow([])
+        writer.writerow(['Unique Usernames Tested', unique_usernames])
+        writer.writerow(['Unique Passwords Tested', unique_passwords])
+        writer.writerow([])
+        writer.writerow(['Latency Statistics (ms)'])
+        writer.writerow(['Sum (Total Latency)', f"{total_latency:.2f}"])
+        writer.writerow(['Average Latency', f"{avg_latency:.2f}"])
+        writer.writerow(['Median Latency (P50)', f"{median_latency:.2f}"])
+        writer.writerow(['Min Latency', f"{min_latency:.2f}"])
+        writer.writerow(['Max Latency', f"{max_latency:.2f}"])
+        writer.writerow([])
+        writer.writerow(['Percentiles (ms)'])
+        writer.writerow(['10th Percentile (P10)', f"{p10:.2f}"])
+        writer.writerow(['25th Percentile (P25)', f"{p25:.2f}"])
+        writer.writerow(['75th Percentile (P75)', f"{p75:.2f}"])
+        writer.writerow(['90th Percentile (P90)', f"{p90:.2f}"])
+        writer.writerow(['95th Percentile (P95)', f"{p95:.2f}"])
+        writer.writerow(['99th Percentile (P99)', f"{p99:.2f}"])
+        writer.writerow([])
+        
+        # Time range
+        if data:
+            timestamps = [entry.get('timestamp', '') for entry in data if entry.get('timestamp')]
+            if timestamps:
+                writer.writerow(['Time Range'])
+                writer.writerow(['First Attempt', min(timestamps)])
+                writer.writerow(['Last Attempt', max(timestamps)])
+        
+        writer.writerow([])
+        writer.writerow(['Report Generated', datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
+    
+    return output_file
+
+def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Convert logging.json to CSV with statistics')
+    parser.add_argument('--input', '-i', default='logging.json', help='Input JSON log file (default: logging.json)')
+    parser.add_argument('--output-dir', '-o', default='.', help='Output directory for CSV file (default: current directory)')
+    
+    args = parser.parse_args()
+    
+    print(f"Loading data from {args.input}...")
+    data = load_logging_data(args.input)
+    
+    if data:
+        print(f"Found {len(data)} log entries")
+        output_file = create_csv_report(data, args.output_dir)
+        if output_file:
+            print(f"CSV report created: {output_file}")
+            
+            # Print quick summary
+            total = len(data)
+            success = sum(1 for e in data if e.get('result') == True)
+            latencies = [e.get('latency_ms', 0) for e in data if e.get('latency_ms')]
+            avg_lat = sum(latencies) / len(latencies) if latencies else 0
+            
+            print(f"\nQuick Summary:")
+            print(f"  Total Attempts: {total}")
+            print(f"  Successful: {success}")
+            print(f"  Failed: {total - success}")
+            print(f"  Avg Latency: {avg_lat:.2f} ms")
+    else:
+        print("No data found or file not readable")
+
+if __name__ == "__main__":
+    main()
