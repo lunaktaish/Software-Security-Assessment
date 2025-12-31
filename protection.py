@@ -8,11 +8,11 @@ import hmac
 import struct
 
 # ON/OFF FLAGS - Set True to enable, False to disable
-RATE_LIMIT_ENABLED = False      
-LOCKOUT_ENABLED = False        
-CAPTCHA_ENABLED = False       
+RATE_LIMIT_ENABLED = False     
+LOCKOUT_ENABLED = False  
+CAPTCHA_ENABLED = False      
 TOTP_ENABLED = False           
-PEPPER_ENABLED = False       
+PEPPER_ENABLED = False   
 
 # Rate Limiting: Max attempts per time window
 RATE_LIMIT_MAX_ATTEMPTS = 5        

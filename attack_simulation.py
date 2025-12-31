@@ -174,7 +174,7 @@ def full_login_attempt(username, password):
     # Handle TOTP
     if response.get("totp_required"):
         totp_session = response.get("totp_session")
-        totp_secret = get_totp_secret_from_db(username)
+        totp_secret = get_totp_secret_from_db(username) 
         
         if totp_secret:
             totp_code = generate_totp_code(totp_secret)
